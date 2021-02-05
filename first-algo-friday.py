@@ -14,3 +14,12 @@ def number_of_perfect_squares():
             perfect_square_count = perfect_square_count + 1
     return perfect_square_count
 print(number_of_perfect_squares())
+
+def raise_number_to_power():
+    number = int(input("Please enter a number: "))
+    power = int(input("Please enter a power to raise it to: "))
+    
+    return print(f'The {number} raised by {power} is {number**power}')
+
+raise_number_to_power()
+
