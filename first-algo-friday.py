@@ -9,7 +9,7 @@ def number_of_perfect_squares():
     end = int(input('Please enter an ending integer: '))
     perfect_square_count = 0
 
-    for number in range(start, end+1):
+    for number in range(start, end):
         if(perfect_square_checker(number)):
             perfect_square_count = perfect_square_count + 1
     return perfect_square_count
