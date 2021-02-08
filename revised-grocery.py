@@ -1,10 +1,10 @@
 stores = []
 
 class Store: 
-  def __init__(self, name, address): 
-    self.name = name 
-    self.address = address 
-    self.items = [] 
+    def __init__(self, name, address): 
+        self.name = name 
+        self.address = address 
+        self.items = [] 
     
 class Item:
     def __init__(self, name, price, quantity):
@@ -38,6 +38,9 @@ def makeagrocerylist():
             try:
                 add_index = int(input('Which store would you like to add to? ')) -1
 
+            except IndexError:
+                add_index = int(input("We don't have that many stores. Enter a different number: "))
+
             except ValueError:
                 add_index = int(input('Please indicate a number, not a store name. ')) - 1
        
@@ -50,8 +53,10 @@ def makeagrocerylist():
             new_item = Item(add_item, price_item, quantity_item)
 
             stores[add_index].items.append(new_item)
-            for item in stores[add_index].items:
-                print(f'We have added {item.quantity} copies of {item.name} at {item.price} to your list')
+
+            for store in stores:
+                for item in store.items:
+                    print(f'{store.name}: {item.name}, {item.quantity} at ${item.price} apiece, total ${item.quantity*item.price}')
 
         else:
             break
