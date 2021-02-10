@@ -19,6 +19,7 @@ def makeagrocerylist():
     while choice != 'q': 
         print("Enter 1 to add a store: ")
         print("Enter 2 to add item to a store: ")
+        print('Enter 3 to print the list of stores and items.')
         print("Enter q to quit: ")
         choice = input('Please enter a choice: ') 
 
@@ -53,7 +54,9 @@ def makeagrocerylist():
             new_item = Item(add_item, price_item, quantity_item)
 
             stores[add_index].items.append(new_item)
+            print('Item(s) added!')
 
+        elif choice == '3':
             for store in stores:
                 for item in store.items:
                     print(f'{store.name}: {item.name}, {item.quantity} at ${item.price} apiece, total ${item.quantity*item.price}')
